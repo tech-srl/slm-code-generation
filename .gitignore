@@ -1,0 +1,12 @@
+*.class
+*.lst
+.idea/*
+JavaExtractor/JPredict/.idea/*
+*.iml
+test_input/*
+*.json
+*.txt
+__pycache__/*
+models/*
+venv/*
+data/*
