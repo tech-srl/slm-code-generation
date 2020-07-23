@@ -24,6 +24,7 @@ Table of Contents
   * [Download our preprocessd dataset](#download-our-preprocessed-java-small-dataset)
   * [Creating a new dataset](#creating-and-preprocessing-a-new-java-dataset)
   * [Datasets](#datasets)
+  * [Querying the trained model](#querying-the-trained-model)
   * [Citation](#citation)
 
 ## Requirements
@@ -84,6 +85,18 @@ The C# dataset that we used in the paper was created using the raw (`*.cs` files
 
 To extract examples from the C# files, we modified the data extraction code of 
 Brockschmidt et al., 2019: [https://github.com/microsoft/graph-based-code-modelling/](https://github.com/microsoft/graph-based-code-modelling/).
+
+## Querying the Trained Model
+To query the trained model, use the following API, where `MYCODE` is the given code snippet, that includes two question marks (`??`) to mark the "hole" that should be completed:
+```
+curl -X POST https://w0w3uc4a63.execute-api.us-east-1.amazonaws.com/prod/predict -d '{"code": "MYCODE"}'
+```
+
+For example:
+
+```
+curl -X POST https://w0w3uc4a63.execute-api.us-east-1.amazonaws.com/prod/predict -d '{"code": "public static Path[] stat2Paths(FileStatus[] stats) {  if (stats == null) return null;  Path[] ret = new Path[stats.length]; for (int i = 0; i < stats.length; ++i) { ret[i] = ??; } return ret; }"}'
+```
 
 ## Citation 
 
