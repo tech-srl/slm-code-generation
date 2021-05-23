@@ -103,10 +103,12 @@ curl -X POST https://w0w3uc4a63.execute-api.us-east-1.amazonaws.com/prod/predict
 [Structural Language Models of Code](https://arxiv.org/pdf/1910.00577.pdf)
 
 ```
-@article{alon2019structural,
-  title={Structural Language Models of Code},
+@inproceedings{alon2020structural,
+  title={Structural language models of code},
   author={Alon, Uri and Sadaka, Roy and Levy, Omer and Yahav, Eran},
-  journal={arXiv preprint arXiv:1910.00577},
-  year={2019}
+  booktitle={International Conference on Machine Learning},
+  pages={245--256},
+  year={2020},
+  organization={PMLR}
 }
 ```
