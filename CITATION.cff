@@ -1,0 +1,8 @@
+@inproceedings{alon2020structural,
+  title={Structural language models of code},
+  author={Alon, Uri and Sadaka, Roy and Levy, Omer and Yahav, Eran},
+  booktitle={International Conference on Machine Learning},
+  pages={245--256},
+  year={2020},
+  organization={PMLR}
+}
