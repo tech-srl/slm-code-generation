@@ -3,12 +3,11 @@ This is an official implementation of the model described in:
 
 "Structural Language Models of Code" [[PDF]](https://arxiv.org/pdf/1910.00577.pdf)
 
-To appear in ICML'2020.
+Appeared in ICML'2020.
 
 An **online demo** is available at [https://AnyCodeGen.org](https://AnyCodeGen.org).
 
 This repository currently contains the dataset and the data extractor that we used to create the Java dataset in the paper.
-The TensorFlow code will be released soon.
 
 
 Feel free to open a [new issue](https://github.com/tech-srl/slm-code-generation/issues/new) 
@@ -87,7 +86,9 @@ To extract examples from the C# files, we modified the data extraction code of
 Brockschmidt et al., 2019: [https://github.com/microsoft/graph-based-code-modelling/](https://github.com/microsoft/graph-based-code-modelling/).
 
 ## Querying the Trained Model
-To query the trained model, use the following API, where `MYCODE` is the given code snippet, that includes two question marks (`??`) to mark the "hole" that should be completed:
+To query the trained model, use the following API, where `MYCODE` is the given code snippet, that includes two question marks (`??`) to mark the "hole" that should be completed. 
+
+### To query the expression-prediction model (the "paper model" in the demo website):
 ```
 curl -X POST https://w0w3uc4a63.execute-api.us-east-1.amazonaws.com/prod/predict -d '{"code": "MYCODE"}'
 ```
@@ -96,6 +97,17 @@ For example:
 
 ```
 curl -X POST https://w0w3uc4a63.execute-api.us-east-1.amazonaws.com/prod/predict -d '{"code": "public static Path[] stat2Paths(FileStatus[] stats) {  if (stats == null) return null;  Path[] ret = new Path[stats.length]; for (int i = 0; i < stats.length; ++i) { ret[i] = ??; } return ret; }"}'
+```
+
+### To query the statement-prediction model (the "extended model" in the demo website):
+```
+curl -X POST https://63g9yqims7.execute-api.us-east-1.amazonaws.com/prod/predict -d '{"code": "MYCODE"}'
+```
+
+For example:
+
+```
+curl -X POST https://63g9yqims7.execute-api.us-east-1.amazonaws.com/prod/predict -d '{"code": "@Override public boolean retainAll(Collection<?> collection) { boolean changed = false;     for (Iterator<E> iter = iterator(); iter.hasNext(); ) {         Element elem = iter.next();        if (!collection.contains(elem)) {           iter.remove();             ??        }    }    return changed;}"}'
 ```
 
 ## Citation 
