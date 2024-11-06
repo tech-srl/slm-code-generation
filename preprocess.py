@@ -11,7 +11,8 @@ MAX_CONTEXTS = 0
 MAX_INTERNAL_PATHS = 0
 MAX_PATH_LENGTH = 0
 MAX_RELATIVE_PATH_LENGTH = 0
-MAX_EXAMPLES_IN_SHARD = 500000
+#MAX_EXAMPLES_IN_SHARD = 500000
+MAX_EXAMPLES_IN_SHARD = 100000
 
 def save_dictionaries(dataset_name, subtok_to_count, node_to_count, max_contexts, max_internal_paths,
                       max_path_length, max_path_width, max_relative_path_length, max_child_id):
